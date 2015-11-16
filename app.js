@@ -12,7 +12,8 @@ var express = require('express')
 var app = express();
 
 var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('localhost', 'mytestapp');
+var dbAddr = process.env.MONGO_PORT_27017_TCP_ADDR || "localhost";
+var db = Mongoose.createConnection(dbAddr, 'mytestapp');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
